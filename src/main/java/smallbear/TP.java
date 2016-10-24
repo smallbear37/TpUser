@@ -20,7 +20,7 @@ public class TP extends PluginBase implements Listener {
 	 public Location getPlayer(PlayerChatEvent event){	
 		 if(event.getMessage() == "/tpa"+getName());
 		 event.getPlayer().teleportImmediate(getPlayer(event));
-		 EconomyAPI::getInstance()->addMoney($player,$1000);
+		 EconomyAPI::getInstance()->reduceMoney($player,$1000);
 		return null;
 	 }
 
