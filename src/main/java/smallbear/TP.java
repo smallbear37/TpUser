@@ -2,13 +2,13 @@ package smallbear;
 
 import java.util.Map;
 
+import cn.nukkit.Player;
 import cn.nukkit.command.Command;
-import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.defaults.TeleportCommand;
 import cn.nukkit.event.Listener;
 import cn.nukkit.level.Location;
 import cn.nukkit.plugin.PluginBase;
-import EconomyAPI.src.onebone.economyapi.*;
+import me.onebone.economyapi.*;
 
 public class TP extends PluginBase implements Listener {
 	
@@ -23,14 +23,11 @@ public class TP extends PluginBase implements Listener {
 	public void onEnable() {
 		this.getLogger().info("§a유저티피 플러그인 로딩완료!");
 	}
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	public boolean onCommand(Player sender, Command command, String label, String[] args) {
 		String cmd = command.getName();
 		if (cmd.equals("tpa")) {
-			if(true)
-				sender.getServer().getCommandMap().register(getName(), teleportManager);
-				sender.getServer().getCommandMap().register("tpa", teleportManager);
-				sender.getServer().getLevelByName(getName());
-				//무엇이 맞을까요? 내일 새벽에 알려집니다!
+			//이곳에 "sender가 getName()으로 위치이동 시키기
+				EconomyAPI.getInstance().reduceMoney(sender, 1000);
 
 			}
 				return true;
